@@ -10,3 +10,5 @@
 #mmdPathV28 .mp28__lane--member .mp28__portrait img{object-position:center 24%}
 #mmdPathV28 .mp28__lane--model .mp28__portrait img{object-position:center 18%}
 #mmdPathV28 .mp28__lane--partner .mp28__portrait img{object-position:center 20%}
+#mmdPathV28 .mp28__hero-media img{object-position:70% center}
+@media(min-width:768px){#mmdPathV28 .mp28__hero-media img{object-position:68% center}}
