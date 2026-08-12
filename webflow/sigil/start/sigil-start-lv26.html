@@ -1,82 +1,75 @@
-<section id="sigilStartV26" class="ss26" data-route="/sigil/start" aria-label="MMD — Choose your path">
-  <div class="ss26__ambient" aria-hidden="true"><span></span></div>
+<section id="mmdPathV27" class="mp27" data-page="/sigil/start" aria-labelledby="mp27-title">
+  <div class="mp27__grain" aria-hidden="true"></div>
 
-  <header class="ss26__topbar">
-    <a class="ss26__brand" href="/" aria-label="MMD Privé home">
-      <img src="https://cdn.prod.website-files.com/68f879d546d2f4e2ab186e90/6a0ea3f9421cae9dd223f50b_SIGIL%20only%20logo.png" width="38" height="38" alt="MMD Privé">
-      <span><b>MMD</b><small>PRIVÉ · BANGKOK</small></span>
+  <header class="mp27__nav">
+    <a class="mp27__brand" href="/" aria-label="MMD Privé home">
+      <img src="https://s3.amazonaws.com/webflow-prod-assets/68f879d546d2f4e2ab186e90/6a6c4486e7585ba74ab2eeb1_MMD_Prive%CC%81_logo_signature_transparent%20Final.webp" alt="MMD Privé" width="174" height="70">
     </a>
-    <a class="ss26__home-link" href="/">MMD PRIVÉ <span>↗</span></a>
+    <p>MEMBERS · MODELS · PARTNERS</p>
   </header>
 
   <main>
-    <section class="ss26__hero" aria-labelledby="ss26-title">
-      <div class="ss26__hero-media" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/68f879d546d2f4e2ab186e90/6a2e58d197912c7657c8083b_SIGIL-STrat.webp" alt="" loading="eager" fetchpriority="high">
-        <span></span>
-      </div>
-      <div class="ss26__hero-copy" data-reveal>
-        <p class="ss26__eyebrow">MMD</p>
-        <h1 id="ss26-title">Choose<br><em>your path.</em></h1>
-        <p class="ss26__lead">A private space for members, models, and selected partners.</p>
-        <a class="ss26__discover" href="#mmdPaths">Discover the three paths <span>↓</span></a>
-      </div>
-    </section>
+    <header class="mp27__intro" data-reveal>
+      <p class="mp27__kicker">MMD PRIVÉ · BANGKOK</p>
+      <h1 id="mp27-title">Choose your path.</h1>
+      <p class="mp27__lead">A private space for members, models, and selected partners.</p>
+    </header>
 
-    <section id="mmdPaths" class="ss26__paths" aria-labelledby="ss26-paths-title">
-      <header class="ss26__section-head" data-reveal>
-        <p class="ss26__eyebrow">THREE LANES · ONE MMD WORLD</p>
-        <h2 id="ss26-paths-title">Where do you belong?</h2>
-        <p>เลือกพื้นที่ที่ตรงกับความสัมพันธ์ของคุณกับ MMD ในวันนี้</p>
-      </header>
-
-      <div class="ss26__lane-grid">
-        <article class="ss26__lane ss26__lane--member" data-lane="member" data-reveal>
-          <div class="ss26__lane-media"><img src="https://cdn.prod.website-files.com/68f879d546d2f4e2ab186e90/6a2c3e2f7ed2faa7ad32e567_SIGILStart.webp" alt="Private MMD member entrance" loading="lazy"><span></span></div>
-          <div class="ss26__lane-copy">
-            <small>01 · MEMBER CARD</small>
-            <h3>For Members</h3>
-            <p>สำหรับสมาชิกและลูกค้าที่ต้องการเข้าสู่พื้นที่ส่วนตัว ดูสถานะ หรือเริ่มต้นกับ MMD</p>
-            <div class="ss26__lane-actions">
-              <a class="ss26__button ss26__button--light" href="/sigil/inme" data-preserve-link>Enter Member Space <span>↗</span></a>
-              <a class="ss26__text-link" href="/member/membership" data-preserve-link>View Membership</a>
-            </div>
+    <section class="mp27__lanes" aria-label="Choose an MMD path">
+      <article class="mp27__card mp27__card--member" data-reveal>
+        <div class="mp27__media">
+          <img src="https://s3.amazonaws.com/webflow-prod-assets/68f879d546d2f4e2ab186e90/6a6f330f6603b394b4a668ef_Kenji%20SIGIL%20Start%2001.webp" alt="Kenji welcoming MMD members" loading="eager">
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="mp27__copy">
+          <div class="mp27__identity"><small>01 · MEMBER CARD</small><b>KENJI</b></div>
+          <h2>For Members</h2>
+          <p>สำหรับสมาชิกและลูกค้าที่ต้องการเข้าสู่พื้นที่ส่วนตัว ดูสถานะ หรือเริ่มต้นกับ MMD</p>
+          <div class="mp27__actions">
+            <a class="mp27__button mp27__button--white" href="/sigil/inme" data-preserve-link>Enter Member Space <span>↗</span></a>
+            <a class="mp27__link" href="/member/membership" data-preserve-link>View Membership</a>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="ss26__lane ss26__lane--models" data-lane="models" data-reveal>
-          <div class="ss26__lane-media"><img src="https://cdn.prod.website-files.com/68f879d546d2f4e2ab186e90/6a497044bef554b822c585ca_SIGIL%20ST%2003.webp" alt="MMD model casting entrance" loading="lazy"><span></span></div>
-          <div class="ss26__lane-copy">
-            <small>02 · MODEL CARDS</small>
-            <h3>For Models</h3>
-            <p>สำหรับผู้ชายที่อยากรู้จักงานของ MMD สมัครเป็นโมเดล หรือกลับมาเปิดพื้นที่ของตัวเอง</p>
-            <nav class="ss26__model-links" aria-label="Model entrances">
-              <a href="/apply/public-model" data-preserve-link><span><b>Public Model</b><em>เริ่มต้นทำความรู้จัก MMD</em></span><i>↗</i></a>
-              <a href="/sigil/apply/model" data-preserve-link><span><b>Apply as Model</b><em>ส่งโปรไฟล์เพื่อรับการพิจารณา</em></span><i>↗</i></a>
-              <a href="/sigil/travel-model" data-preserve-link><span><b>Travel Model</b><em>สำหรับโมเดลสายเดินทาง</em></span><i>↗</i></a>
-            </nav>
-          </div>
-        </article>
+      <article class="mp27__card mp27__card--model" data-reveal>
+        <div class="mp27__media">
+          <img src="https://s3.amazonaws.com/webflow-prod-assets/68f879d546d2f4e2ab186e90/6a74326c93d8443261cb9029_Tart%20Model%20Dash%20Desk.webp" alt="TarT at the MMD model desk" loading="lazy">
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="mp27__copy">
+          <div class="mp27__identity"><small>02 · MODEL CARDS</small><b>TarT</b></div>
+          <h2>For Models</h2>
+          <p>สำหรับผู้ชายที่อยากรู้จักงานของ MMD สมัครเป็นโมเดล หรือกลับมาเปิดพื้นที่ของตัวเอง</p>
+          <nav class="mp27__subpaths" aria-label="Model paths">
+            <a href="/apply/public-model" data-preserve-link><span><b>Public Model</b><em>เริ่มต้นทำความรู้จัก MMD</em></span><i>↗</i></a>
+            <a href="/sigil/apply/model" data-preserve-link><span><b>Apply as Model</b><em>ส่งโปรไฟล์เพื่อรับการพิจารณา</em></span><i>↗</i></a>
+            <a href="/sigil/travel-model" data-preserve-link><span><b>Travel Model</b><em>สำหรับโมเดลสายเดินทาง</em></span><i>↗</i></a>
+          </nav>
+        </div>
+      </article>
 
-        <article class="ss26__lane ss26__lane--partner" data-lane="partner" data-reveal>
-          <div class="ss26__lane-media"><img src="https://cdn.prod.website-files.com/68f879d546d2f4e2ab186e90/6a4970447d3b027f52c6731f_SIGIL%20ST%2004.webp" alt="MMD selected partner entrance" loading="lazy"><span></span></div>
-          <div class="ss26__lane-copy">
-            <small>03 · PARTNER</small>
-            <h3>For Partners</h3>
-            <p>สำหรับบุคคล แบรนด์ และพาร์ตเนอร์ที่ต้องการสร้างโอกาสใหม่ร่วมกับ MMD</p>
-            <div class="ss26__lane-actions">
-              <a class="ss26__button ss26__button--gold" href="/sigil/apply/partner" data-preserve-link>Apply as Partner <span>↗</span></a>
-              <a class="ss26__text-link" href="/partner" data-preserve-link>Partner Division</a>
-            </div>
+      <article class="mp27__card mp27__card--partner" data-reveal>
+        <div class="mp27__media">
+          <img src="https://s3.amazonaws.com/webflow-prod-assets/68f879d546d2f4e2ab186e90/6a6752136eb3960873c93aa2_01%20Partner%20Yuki%20Desk.webp" alt="Yuki representing MMD Partner Division" loading="lazy">
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="mp27__copy">
+          <div class="mp27__identity"><small>03 · PARTNER</small><b>YUKI</b></div>
+          <h2>For Partners</h2>
+          <p>สำหรับบุคคล แบรนด์ และพาร์ตเนอร์ที่ต้องการสร้างโอกาสใหม่ร่วมกับ MMD</p>
+          <div class="mp27__actions">
+            <a class="mp27__button mp27__button--gold" href="/sigil/apply/partner" data-preserve-link>Apply as Partner <span>↗</span></a>
+            <a class="mp27__link" href="/partner" data-preserve-link>Partner Division</a>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
     </section>
   </main>
 
-  <footer class="ss26__footer">
-    <span>MMD PRIVÉ</span>
-    <p>Members · Models · Selected Partners</p>
-    <small>© <b data-year></b> MMD PRIVÉ</small>
+  <footer class="mp27__footer">
+    <img src="https://s3.amazonaws.com/webflow-prod-assets/68f879d546d2f4e2ab186e90/6a6c4486e7585ba74ab2eeb1_MMD_Prive%CC%81_logo_signature_transparent%20Final.webp" alt="MMD Privé" width="112" height="45">
+    <p>Bangkok’s Best-Kept Secret</p>
+    <small>© <span data-year></span> MMD PRIVÉ</small>
   </footer>
 </section>
