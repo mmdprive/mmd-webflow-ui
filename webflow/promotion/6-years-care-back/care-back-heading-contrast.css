@@ -1,0 +1,12 @@
+/*
+ * MMD Privé — 6 Years CARE BACK
+ * Heading contrast patch
+ *
+ * Scoped to the CARE BACK page root so the override cannot leak into
+ * unrelated Webflow pages. The kicker/eyebrow remains champagne gold.
+ */
+
+#mmd-care-back-lvmax h1,
+#mmd-care-back-lvmax h2 {
+  color: #f4efe5 !important;
+}
