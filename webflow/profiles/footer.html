@@ -1,0 +1,61 @@
+<script>
+(function(){
+  "use strict";
+  var root=document.getElementById("mmdProfilesV8");
+  if(!root||root.dataset.ready==="true")return;
+  root.dataset.ready="true";
+  root.classList.add("is-js");
+
+  var data=document.getElementById("mp8i18n");
+  if(!data)return;
+  var dict=JSON.parse(data.textContent);
+
+  function get(obj,path){return path.split(".").reduce(function(v,k){return v&&v[k]!=null?v[k]:null},obj)}
+  var lang="th";
+  var groups=Array.prototype.slice.call(root.querySelectorAll("[data-filter-group]"));
+  var cards=Array.prototype.slice.call(root.querySelectorAll("[data-profile]"));
+  var track=root.querySelector("[data-track]");
+  var count=root.querySelector("[data-result-count]");
+  var empty=root.querySelector("[data-empty]");
+  var swipe=root.querySelector("[data-swipe]");
+  var allowed={gender:["all","male","female"],service:["all","travel","extreme"]};
+  var params=new URLSearchParams(location.search);
+  var state={gender:allowed.gender.indexOf(params.get("gender"))>-1?params.get("gender"):"all",service:allowed.service.indexOf(params.get("service"))>-1?params.get("service"):"all"};
+
+  function setLang(value){
+    lang=dict[value]?value:"th";
+    root.querySelectorAll("[data-i18n]").forEach(function(el){var v=get(dict[lang],el.dataset.i18n);if(v!=null)el.textContent=v});
+    root.querySelectorAll("[data-i18n-html]").forEach(function(el){var v=get(dict[lang],el.dataset.i18nHtml);if(v!=null)el.innerHTML=v});
+    root.querySelectorAll("[data-lang]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.dataset.lang===lang))});
+    document.documentElement.lang=lang==="zh"?"zh-Hans":lang;
+    try{localStorage.setItem("mmd_lang",lang)}catch(e){}
+    updateCount(cards.filter(function(card){return !card.hidden}).length);
+  }
+
+  function list(value){return value?value.split(",").map(function(x){return x.trim()}).filter(Boolean):[]}
+  function accepts(card){
+    if(state.service==="all"){
+      if(state.gender==="all")return true;
+      return ["travel","extreme"].some(function(type){return list(card.dataset[type]).indexOf(state.gender)>-1});
+    }
+    var genders=list(card.dataset[state.service]);
+    return genders.length>0&&(state.gender==="all"||genders.indexOf(state.gender)>-1);
+  }
+  function updateCount(n){var template=n===1?dict[lang].result.one:dict[lang].result.many;count.textContent=template.replace("{n}",String(n))}
+  function pressed(){groups.forEach(function(group){group.querySelectorAll("[data-filter-value]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.dataset.filterValue===state[group.dataset.filterGroup]))})})}
+  function applyFilters(){var visible=0;cards.forEach(function(card){var show=accepts(card);card.hidden=!show;card.setAttribute("aria-hidden",String(!show));if(show)visible++});pressed();updateCount(visible);empty.hidden=visible!==0;if(swipe)swipe.hidden=visible<2;if(track)track.scrollTo({left:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"})}
+
+  groups.forEach(function(group){group.addEventListener("click",function(e){var btn=e.target.closest("[data-filter-value]");var key=group.dataset.filterGroup;if(!btn||!group.contains(btn)||!allowed[key]||allowed[key].indexOf(btn.dataset.filterValue)===-1)return;state[key]=btn.dataset.filterValue;applyFilters()})});
+  root.addEventListener("click",function(e){var langBtn=e.target.closest("[data-lang]");if(langBtn){setLang(langBtn.dataset.lang);return}var anchor=e.target.closest('a[href^="#"]');if(anchor&&root.contains(anchor)){var target=root.querySelector(anchor.getAttribute("href"));if(target){e.preventDefault();target.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"})}}});
+
+  var header=root.querySelector("[data-header]");var progress=root.querySelector("[data-progress]");var ticking=false;
+  function chrome(){var y=scrollY||document.documentElement.scrollTop||0;var max=Math.max(1,document.documentElement.scrollHeight-innerHeight);if(header)header.classList.toggle("is-scrolled",y>18);if(progress)progress.style.transform="scaleX("+Math.min(1,Math.max(0,y/max))+")"}
+  addEventListener("scroll",function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){chrome();ticking=false})},{passive:true});
+
+  var items=root.querySelectorAll("[data-reveal]");
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches||!("IntersectionObserver" in window)){items.forEach(function(x){x.classList.add("is-visible")})}else{var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:"0px 0px -7% 0px"});items.forEach(function(x){observer.observe(x)})}
+
+  var initial="th";try{initial=params.get("lang")||localStorage.getItem("mmd_lang")||"th"}catch(e){}
+  setLang(initial);applyFilters();chrome();
+})();
+</script>
